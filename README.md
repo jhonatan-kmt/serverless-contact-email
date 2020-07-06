@@ -10,6 +10,8 @@ $ git clone git@github.com:kommitters/serverless-contact-form.git
 ```
 $ npm i -g serverless
 ```
+*__Note:__ If you're using Linux, you may need to run the command as sudo.*
+
 ## 3. Configure your AWS credentials
 ```
 $ serverless config credentials \
