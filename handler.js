@@ -14,11 +14,12 @@ function generateResponse (code, payload) {
       'Access-Control-Allow-Credentials': true
     },
     body: JSON.stringify(payload)
-  }
+  };
 }
 
+module.exports.generateResponse = generateResponse;
+
 function generateError (code, err) {
-  console.log(err)
   return {
     statusCode: code,
     headers: {
@@ -27,14 +28,15 @@ function generateError (code, err) {
       'Access-Control-Allow-Credentials': true
     },
     body: JSON.stringify(err.message)
-  }
+  };
 }
 
+module.exports.generateError = generateError;
+
 function generateEmailParams (body) {
-  const { email, name, message, phone, subject } = JSON.parse(body)
-  console.log(email, name, phone)
+  const { email, name, message, phone } = JSON.parse(body)
   if (!(email && name && phone)) {
-    throw new Error('Missing parameters! Make sure to add \'email\', \'name\', \'phone\' as parameters.')
+    throw new Error('Missing parameters! Make sure to add \'email\', \'name\', \'phone\' as parameters.');
   }
 
   return {
@@ -53,15 +55,17 @@ function generateEmailParams (body) {
         Data: `New contact message from ${myDomain}!`
       }
     }
-  }
+  };
 }
+
+module.exports.generateEmailParams = generateEmailParams;
 
 module.exports.send = async (event) => {
   try {
-    const emailParams = generateEmailParams(event.body)
-    const data = await ses.sendEmail(emailParams).promise()
-    return generateResponse(200, data)
+    const emailParams = generateEmailParams(event.body);
+    const data = await ses.sendEmail(emailParams).promise();
+    return generateResponse(200, data);
   } catch (err) {
-    return generateError(500, err)
+    return generateError(500, err);
   }
-}
+};
