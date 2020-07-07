@@ -1,0 +1,23 @@
+{
+  "name": "serverless-contact-email",
+  "version": "1.0.0",
+  "description": "This repo allows you to deploy with ease an AWS Serverless infrastructure to handle contact requests in your static website",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kommitters/serverless-contact-email.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kommitters/serverless-contact-email/issues"
+  },
+  "homepage": "https://github.com/kommitters/serverless-contact-email#readme",
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "aws-sdk": "^2.706.0"
+  }
+}
