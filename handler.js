@@ -1,9 +1,9 @@
 // handler.js
 
-const aws = require('aws-sdk')
-const ses = new aws.SES()
-const myEmail = process.env.EMAIL
-const myDomain = process.env.DOMAIN
+const aws = require('aws-sdk');
+const ses = new aws.SES();
+const myEmail = process.env.EMAIL;
+const myDomain = process.env.DOMAIN;
 
 function generateResponse (code, payload) {
   return {
@@ -11,7 +11,7 @@ function generateResponse (code, payload) {
     headers: {
       'Access-Control-Allow-Origin': myDomain,
       'Access-Control-Allow-Headers': 'x-requested-with',
-      'Access-Control-Allow-Credentials': true
+      'Access-Control-Allow-Credentials': true,
     },
     body: JSON.stringify(payload)
   };
@@ -25,7 +25,7 @@ function generateError (code, err) {
     headers: {
       'Access-Control-Allow-Origin': myDomain,
       'Access-Control-Allow-Headers': 'x-requested-with',
-      'Access-Control-Allow-Credentials': true
+      'Access-Control-Allow-Credentials': true,
     },
     body: JSON.stringify(err.message)
   };
@@ -34,9 +34,9 @@ function generateError (code, err) {
 module.exports.generateError = generateError;
 
 function generateEmailParams (body) {
-  const { email, name, message, phone } = JSON.parse(body)
-  if (!(email && name && phone)) {
-    throw new Error('Missing parameters! Make sure to add \'email\', \'name\', \'phone\' as parameters.');
+  const { email, name, message, phone } = JSON.parse(body);
+  if (!(email && name && message)) {
+    throw new Error('Missing parameters! Make sure to add \'email\', \'name\', \'message\' as parameters.');
   }
 
   return {
@@ -45,14 +45,27 @@ function generateEmailParams (body) {
     ReplyToAddresses: [email],
     Message: {
       Body: {
-        Text: {
-          Charset: 'UTF-8',
-          Data: `Message sent from email ${email} by ${name} \nPhone: ${phone} \nMessage: ${message}`
+        Html: {
+          Charset: "UTF-8",
+          Data: `
+          <\!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+            </head>
+            <body>
+              <div>Message sent from email <b>${email}</b> by <b>${name}</b></div>
+              ${phone && `<div><b>Phone</b>: ${phone}</div>`}
+              <br>
+              <div><b>Message</b>: ${message}<div>
+            </body>
+          </html>
+          `,
         }
       },
       Subject: {
         Charset: 'UTF-8',
-        Data: `New contact message from ${myDomain}!`
+        Data: `New contact message from ${myDomain}!`,
       }
     }
   };
