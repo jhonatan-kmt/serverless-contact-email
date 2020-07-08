@@ -1,16 +1,20 @@
 service: serverless-contact-form
 
+custom:
+  secrets: ${file(secrets.json)}
+
 package:
   excludeDevDependencies: true
 
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: ${self:custom.secrets.NODE_ENV}
   region: us-east-1
   environment:
-    NODE_ENV: ${self:custom.secrets:NODE_ENV}
-    EMAIL: ${self:custom.secrets:EMAIL}
-    DOMAIN: ${self:custom.secrets:DOMAIN}
+    NODE_ENV: ${self:custom.secrets.NODE_ENV}
+    EMAIL: ${self:custom.secrets.EMAIL}
+    DOMAIN: ${self:custom.secrets.DOMAIN}
   iamRoleStatements:
     - Effect: "Allow"
       Action:
