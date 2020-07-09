@@ -76,8 +76,14 @@ __With Postman:__
 ### 7. You are done!
 Ready to send contact emails from your static website!  💪.
 
+## Contributing
+Bug reports and pull requests are welcome on GitHub https://github.com/kommitters/serverless-contact-email. Everyone is welcome to participate in the project. If you are thinking about contributing to the project, please check our [Contributing Guide](https://github.com/kommitters/serverless-contact-email/blob/master/CONTRIBUTING.md).
+
+## Changelog
+See the [CHANGELOG](https://github.com/kommitters/serverless-contact-email/blob/master/CHANGELOG.md) for versions details.
+
 ## License
-See LICENSE for details.
+See [LICENSE](https://github.com/kommitters/serverless-contact-email/blob/master/LICENSE) for details.
 
 ## Credits
-Made with 💙 from kommit
+Made with 💙 by kommit
