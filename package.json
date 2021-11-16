@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/kommitters/serverless-contact-email#readme",
   "devDependencies": {
-    "aws-sdk": "^2.706.0",
+    "aws-sdk": "^2.814.0",
     "jest": "^26.0.1"
   }
 }
