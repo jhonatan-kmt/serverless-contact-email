@@ -49,11 +49,10 @@ alternatives.
 
 ## Additional resources
 
-* [Tickspot](https://www.tickspot.com/)
-* #get in touch: [oss@kommit.co](mailto:oss@kommit.co) | [@kommitters_oss](https://twitter.com/kommitters_oss) on twitter.
+* Get in touch: [oss@kommit.co](mailto:oss@kommit.co) | [@kommitters_oss](https://twitter.com/kommitters_oss) on Twitter.
 
 [repo]: https://github.com/kommitters/serverless-contact-email
 [coc]: https://github.com/kommitters/serverless-contact-email/blob/main/CODE_OF_CONDUCT.md
 [commit-msg]: https://github.com/erlang/otp/wiki/Writing-good-commit-messages
-[good-first-issue]: https://github.com/kommitters/serverless-contact-email/labels/good%20first%20issue
-[help-wanted]: https://github.com/kommitters/serverless-contact-email/labels/help%20wanted
+[good-first-issue]: https://github.com/kommitters/serverless-contact-email/issues?q=label%3A%22%F0%9F%91%8B+Good+first+issue%22
+[help-wanted]: https://github.com/kommitters/serverless-contact-email/issues?q=label%3A%22%F0%9F%86%98+Help+wanted%22
